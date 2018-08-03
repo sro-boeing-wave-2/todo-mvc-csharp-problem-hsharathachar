@@ -1,4 +1,4 @@
-# Keep Backend - Similar to Google Keep
+La# Keep Backend - Similar to Google Keep
 
 **Objective:** Create an Application which should be able to drive the Google Keep Application.
 
@@ -21,7 +21,7 @@ The intent of the application is to use **ASP .NET Core Web API's** and **Entity
 
 ## Instructions
 
-- Create a Web API Application which satisfies the above specs
+- Create a Web API Application which satisfies the above specss
 - Create a Documentation using Swagger for the above specs
 - Write Test Cases which should test for the above specs
 - Configure Continuous Integration with this application
