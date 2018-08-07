@@ -22,9 +22,10 @@ namespace todo_api.Controllers
 
         // GET: api/Notes
         [HttpGet]
-        public IEnumerable<Note> GetNote()
+        public async Task<IEnumerable<Note>> GetNote()
         {
-            return _context.Note.Include(s=>s.Labels).Include(y=>y.CheckLists);
+            var z = await _context.Note.Include(s=>s.Labels).Include(y=>y.CheckLists).ToListAsync();
+            return z;
         }
 
         // GET: api/Notes/5
@@ -32,7 +33,7 @@ namespace todo_api.Controllers
         public async Task<IActionResult> GetNote([FromRoute] int id)
         {
             if (!ModelState.IsValid)
-            {
+            {   
                 return BadRequest(ModelState);
             }
 
@@ -88,7 +89,7 @@ namespace todo_api.Controllers
 
         // SEARCH: api/notes/title
         [HttpGet("search/{title}")]
-        public async Task<IActionResult> GetNote([FromRoute] string title)
+        public async Task<IActionResult> GetByTitle([FromRoute] string title)
         {
             if (!ModelState.IsValid)
             {

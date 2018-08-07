@@ -10,6 +10,12 @@ namespace todo_api.Models
         public int ID { get; set; }
         public string Title { get; set; }
         public string PlainText { get; set; }
+
+        internal static object Include(Func<object, object> p)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool Pinned { get; set; }
 
         public List<CheckList> CheckLists { get; set; }

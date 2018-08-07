@@ -9,3 +9,14 @@ E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo
 E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\todo_api\bin\Debug\netcoreapp2.0\todo_api.pdb
 E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\todo_api\obj\Debug\netcoreapp2.0\todo_api.dll
 E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\todo_api\obj\Debug\netcoreapp2.0\todo_api.pdb
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\obj\Debug\netcoreapp2.0\todo_api.csprojAssemblyReference.cache
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\obj\Debug\netcoreapp2.0\todo_api.csproj.CoreCompileInputs.cache
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\obj\Debug\netcoreapp2.0\todo_api.AssemblyInfoInputs.cache
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\obj\Debug\netcoreapp2.0\todo_api.AssemblyInfo.cs
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\obj\Debug\netcoreapp2.0\todo_api.dll
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\obj\Debug\netcoreapp2.0\todo_api.pdb
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\bin\Debug\netcoreapp2.0\todo_api.deps.json
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\bin\Debug\netcoreapp2.0\todo_api.runtimeconfig.json
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\bin\Debug\netcoreapp2.0\todo_api.runtimeconfig.dev.json
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\bin\Debug\netcoreapp2.0\todo_api.dll
+E:\workspace\git_playground\aspdotnet\todo-mvc-csharp-problem-hsharathachar\todo_api\bin\Debug\netcoreapp2.0\todo_api.pdb
