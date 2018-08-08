@@ -19,38 +19,64 @@ namespace todo_api_testcases
             optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
             TodoApiContext context = new TodoApiContext(optionsBuilder.Options);
             _controller = new NotesController(context);
-            NoteData(context);
+            NoteData(optionsBuilder.Options);
         }
 
-        public void NoteData(TodoApiContext context)
+        public void NoteData(DbContextOptions<TodoApiContext> options)
         {
-            var note = new List<Note>()
-          {
-              new Note()
-              {
-                  ID=1,
-                  Title="Boeing",
-                  PlainText="Aerospace company",
-                  Pinned=false,
-                  CheckLists=new List<CheckList>()
-                  {
-                      new CheckList()
+            using (var todocontext = new TodoApiContext(options))
+            {
+                var note = new List<Note>()
+                {
+                  new Note()
+                    {
+                      ID=1,
+                      Title="Boeing",
+                      PlainText="Aerospace company",
+                      Pinned=false,
+                      CheckLists=new List<CheckList>()
                       {
-                          CheckListData="Jumbo Jet",
-                          Status=true
+                          new CheckList()
+                          {
+                              CheckListData="Jumbo Jet",
+                              Status=true
+                          }
+                      },
+                      Labels = new List<Label>()
+                      {
+                          new Label()
+                          {
+                              LabelData ="Dreamliner"
+                          }
                       }
                   },
-                  Labels = new List<Label>()
+
+                   new Note()
                   {
-                      new Label()
+                      ID=3,
+                      Title="Boeings",
+                      PlainText="Aerospace companys",
+                      Pinned=false,
+                      CheckLists=new List<CheckList>()
                       {
-                          LabelData ="Dreamliner"
+                          new CheckList()
+                          {
+                              CheckListData="Jumbo Jets",
+                              Status=true
+                          }
+                      },
+                      Labels = new List<Label>()
+                      {
+                          new Label()
+                          {
+                              LabelData ="Dreamliners"
+                          }
                       }
                   }
-              }
-            };
-            context.Note.AddRange(note);
-            context.SaveChanges();
+               };
+            todocontext.Note.AddRange(note);
+            todocontext.SaveChanges();
+            }
         }
 
         [Fact]
@@ -58,7 +84,7 @@ namespace todo_api_testcases
         {
             var result = await _controller.GetNote();
             var SingleNote = result as List<Note>;
-            Assert.Single(SingleNote);
+            Assert.Equal(2, SingleNote.Count);
         }
 
         [Fact]
@@ -93,27 +119,6 @@ namespace todo_api_testcases
         {
             Note note = new Note
             {
-                Title = "Airbus",
-                PlainText = "Airplane Producer",
-                Pinned = true,
-                CheckLists = new List<CheckList>() { new CheckList { CheckListData = "A450", Status = false } },
-                Labels = new List<Label>() { new Label { LabelData = "A350" } }
-            };
-
-            var result = await _controller.PutNote(2, note);
-            var okResult = result.Should().BeOfType<NoContentResult>().Subject;
-
-            var Note = _controller.GetNote(1);
-            note.Title.Should().Be("Airbus");
-            note.Pinned.Should().Be(true);
-            note.PlainText.Should().Be("Airplane Producer");
-        }
-
-        [Fact]
-        public async void Test7()
-        {
-            Note note = new Note
-            {
                 ID = 2,
                 Title = "Stackroute",
                 PlainText = "Training Centre",
@@ -126,6 +131,30 @@ namespace todo_api_testcases
             var notess = okResult.Value.Should().BeAssignableTo<Note>().Subject;
             notess.ID.Should().Be(2);
         }
+
+        [Fact]
+        public async void Test7()
+        {
+            Note note = new Note
+            {
+                ID = 3,
+                Title = "Airbus",
+                PlainText = "Airplane Producer",
+                Pinned = true,
+                CheckLists = new List<CheckList>() { new CheckList { CheckListData = "A450", Status = false } },
+                Labels = new List<Label>() { new Label { LabelData = "A350" } }
+            };
+
+            var result = await _controller.PutNote(3, note);
+            var okResult = result.Should().BeOfType<NoContentResult>().Subject;
+
+            //var Note = _controller.GetNote(1);
+            //note.Title.Should().Be("Airbus");
+            //note.Pinned.Should().Be(true);
+            //note.PlainText.Should().Be("Airplane Producer");
+        }
+
+
 
         [Fact]
         public async void Test8()
