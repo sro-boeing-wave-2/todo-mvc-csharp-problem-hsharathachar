@@ -19,5 +19,4 @@ dotnet: 2.1
 script:
 
   - dotnet restore
-  - dotnet test todo_api_testcases.Tests
-© 2018 GitHub, Inc.
+  - dotnet test todo_api_testcases/

@@ -79,18 +79,6 @@ namespace todo_api_testcases
             notess.Pinned.Should().Be(false);
         }
 
-        //[Fact]
-        //public void Test4()
-        //{
-        //    //    var result = _controller.GetResultByLabel("Dreamliner");
-        //    //    var status = result as OkObjectResult;
-        //    //    Assert.Equal(200, status.StatusCode);
-        //    var result = _controller.GetResult("Dreamliner");
-        //    var okResult = result.Should().BeOfType<OkObjectResult>().Subject;
-        //    var notess = okResult.Value.Should().BeAssignableTo<Note>().Subject;
-        //    notess.Labels[0].LabelData.Should().Be("Dreamliner");
-        //}
-
         [Fact]
         public async void Test5()
         {
@@ -100,26 +88,26 @@ namespace todo_api_testcases
             notess.Title.Should().Be("Boeing");
         }
 
-        //[Fact]
-        //public async void Test6()
-        //{
-        //    Note note = new Note
-        //    {
-        //        Title = "Airbus",
-        //        PlainText = "Airplane Producer",
-        //        Pinned = true,
-        //        CheckLists = new List<CheckList>() { new CheckList { CheckListData = "A450", Status = false } },
-        //        Labels = new List<Label>() { new Label { LabelData = "A350" } }
-        //    };
+        [Fact]
+        public async void Test6()
+        {
+            Note note = new Note
+            {
+                Title = "Airbus",
+                PlainText = "Airplane Producer",
+                Pinned = true,
+                CheckLists = new List<CheckList>() { new CheckList { CheckListData = "A450", Status = false } },
+                Labels = new List<Label>() { new Label { LabelData = "A350" } }
+            };
 
-        //    var result = await _controller.PutNote(4, note);
-        //    var okResult = result.Should().BeOfType<NoContentResult>().Subject;
+            var result = await _controller.PutNote(2, note);
+            var okResult = result.Should().BeOfType<NoContentResult>().Subject;
 
-        //    var Note = _controller.GetNote(1);
-        //    note.Title.Should().Be("Airbus");
-        //    note.Pinned.Should().Be(true);
-        //    note.PlainText.Should().Be("Airplane Producer");
-        //}
+            var Note = _controller.GetNote(1);
+            note.Title.Should().Be("Airbus");
+            note.Pinned.Should().Be(true);
+            note.PlainText.Should().Be("Airplane Producer");
+        }
 
         [Fact]
         public async void Test7()

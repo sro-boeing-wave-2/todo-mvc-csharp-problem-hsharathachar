@@ -83,6 +83,36 @@ namespace todo_api_testcases
             JId2.Should().Be("1");
 
 
+            //Put
+            var notes = new Note
+            {
+                ID = 1,
+                Title = "Stackroute",
+                PlainText = "Training Centre",
+                Pinned = true,
+                CheckLists = new List<CheckList>()
+                  {
+                      new CheckList()
+                      {
+                          CheckListData="C and C++",
+                          Status=false
+                      }
+                  },
+                Labels = new List<Label>()
+                  {
+                      new Label()
+                      {
+                          LabelData ="JS and C#"
+                      }
+                  }
+            };
+            var content3 = JsonConvert.SerializeObject(notes);
+            var stringContent3 = new StringContent(content, Encoding.UTF8, "application/json");
+
+            var response3 = await _client.PutAsync("/api/notes/1", stringContent);
+            response.EnsureSuccessStatusCode();
+
+
             //Delete
             var response4 = await _client.DeleteAsync("/api/notes/1");
             response.EnsureSuccessStatusCode();
