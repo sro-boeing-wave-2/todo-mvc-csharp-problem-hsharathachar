@@ -24,7 +24,7 @@ namespace todo_api.Controllers
         [HttpGet]
         public async Task<IEnumerable<Note>> GetNote()
         {
-            var z = await _context.Note.Include(s=>s.Labels).Include(y=>y.CheckLists).ToListAsync();
+            var z = await _context.Note.Include(s => s.Labels).Include(y => y.CheckLists).ToListAsync();
             return z;
         }
 
@@ -33,7 +33,7 @@ namespace todo_api.Controllers
         public async Task<IActionResult> GetNote([FromRoute] int id)
         {
             if (!ModelState.IsValid)
-            {   
+            {
                 return BadRequest(ModelState);
             }
 
@@ -75,7 +75,7 @@ namespace todo_api.Controllers
                 return BadRequest(ModelState);
             }
 
-            var note = _context.Note.Include(s => s.Labels).Include(y => y.CheckLists).Where(x => x.Labels!=null);
+            var note = _context.Note.Include(s => s.Labels).Include(y => y.CheckLists).Where(x => x.Labels != null);
             var result = note.Where(x => x.Labels.Any(c => c.LabelData == label));
 
 

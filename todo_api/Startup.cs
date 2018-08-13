@@ -30,12 +30,12 @@ namespace todo_api
         {
             services.AddMvc();
 
-            if(Environment.IsEnvironment("Development"))
-           {
-                services.AddDbContext<TodoApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("TodoApiContext")));
+            if (Environment.IsEnvironment("Development"))
+            {
+                services.AddDbContext<TodoApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("docker_todo_apiContext")));
             }
-           else
-           {
+            else
+            {
                 services.AddDbContext<TodoApiContext>(options =>
                options.UseInMemoryDatabase("InMemoryDataBaseString"));
             }

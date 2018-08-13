@@ -74,8 +74,8 @@ namespace todo_api_testcases
                       }
                   }
                };
-            todocontext.Note.AddRange(note);
-            todocontext.SaveChanges();
+                todocontext.Note.AddRange(note);
+                todocontext.SaveChanges();
             }
         }
 
